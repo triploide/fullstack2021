@@ -1,0 +1,17 @@
+.caja1 {
+    margin: 10px;
+    padding: 10px;
+    background-color: indigo;
+    color: white;
+    border-width: 5px;
+    border-style: solid;
+    border-color: blue;
+    width: 300px;
+    display: inline-block;
+}
+
+.caja2 {
+    margin-top: 50px;
+    margin-bottom: 500px;
+    background-color: red;
+}

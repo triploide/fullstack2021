@@ -1,0 +1,11 @@
+.nav {
+    display: inline-block;
+    width: 150px;
+    background-color: honeydew;
+    border: 2px solid greenyellow;
+}
+
+.nav_ancla {
+    color: black;
+    text-decoration: none;
+}
