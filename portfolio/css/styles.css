@@ -1,11 +1,39 @@
-.nav {
-    display: inline-block;
-    width: 150px;
-    background-color: honeydew;
-    border: 2px solid greenyellow;
+.header-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #12F300;
+    padding: 15px 20px;
 }
 
-.nav_ancla {
-    color: black;
+.header-principal h1 {
+    margin: 0;
+}
+
+.header-principal ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.header-principal ul li {
+    list-style: none;
+    text-align: center;
+    width: 120px;
+    border: solid 1px #28720b;
+}
+
+.header-principal ul li  a {
     text-decoration: none;
+    color: black;
+}
+
+.header-secundario {
+    background-color: #12F300;
+    padding: 30px 90px;
+}
+
+.header-secundario h2 {
+    margin: 0;
 }
