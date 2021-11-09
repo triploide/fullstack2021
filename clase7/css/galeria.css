@@ -1,0 +1,11 @@
+.galeria {
+    display: flex;
+}
+
+.galeria .card {
+    width: 25%;
+}
+
+.bg-dark {
+    background-color: #081459 !important;
+}

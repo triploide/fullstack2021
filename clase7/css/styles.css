@@ -1,0 +1,49 @@
+a {
+    text-decoration: none;
+    color: tomato;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: rgb(30, 226, 46);
+}
+
+.caja {
+    width: 50px;
+    height: 50px;
+    background-color: #0066cc;
+    transition-duration: 1s;
+    transition-delay: 0.1s;
+    transition-property: width,height;
+    transition-timing-function:  ease-in-out;
+}
+
+.caja:hover {
+    width: 150px;
+    height: 150px;
+    background-color: yellowgreen;
+}
+
+.tapa {
+    display: block;
+    width: 58px;
+    height: 77px;
+    transition: all 0.3s 0s ease-in;
+    /* transition: property duration delay timing-function */
+}
+
+/* .tapa:hover {
+    width: 106px;
+    height: 155px;
+} */
+
+.tapa:active {
+    width: 106px;
+    height: 155px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
