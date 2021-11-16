@@ -36,6 +36,11 @@
     border-radius: 5px;
 }
 
+.habilidad .fas {
+    font-size: 36px;
+    color: #464646;
+}
+
 .footer {
     margin-top: 60px;
     background-color: #304269;

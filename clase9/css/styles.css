@@ -1,0 +1,8 @@
+.texto {
+    font-size: 36px;
+    color: #FF0000;
+}
+
+.texto:hover {
+    color: #00FF00;
+}
