@@ -9,10 +9,10 @@
 <body>
     <h1><?php echo 'Home'; ?></h1>
 
-    <?php include 'includes/nav.php'; ?>
+    <?php include __DIR__ . '/includes/nav.php'; ?>
 
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa sit, natus doloremque, aperiam praesentium veniam amet delectus rerum sint reprehenderit id, corporis voluptatibus adipisci voluptatum consequatur? Autem doloremque minus assumenda!</p>
 
-    <?php include 'includes/footer.php'; ?>
+    <?php include __DIR__ . '/includes/footer.php'; ?>
 </body>
 </html>
