@@ -1,5 +1,7 @@
 <?php
 
+$mayor = 7;
+
 $numeros = [
     3,
     7,
