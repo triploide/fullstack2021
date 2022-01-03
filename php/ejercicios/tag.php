@@ -11,9 +11,9 @@
  */
 
 function tag($texto, $tag) {
-    //TO DO: Implementar
+    return "<$tag>$texto</$tag>";
 }
 
-tag('Hola Mundo', 'h1'); // la función debe devolver: <h1>Hola Mundo</h1>
-tag('Hola Mundo', 'p'); // la función debe devolver: <p>Hola Mundo</p>
+var_dump(tag('Hola Mundo', 'h1')); // la función debe devolver: <h1>Hola Mundo</h1>
+var_dump(tag('Hola Mundo', 'p')); // la función debe devolver: <p>Hola Mundo</p>
 

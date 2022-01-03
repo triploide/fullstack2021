@@ -19,12 +19,22 @@ $categorias = [
 
 $pagina = $_GET['pagina'];
 
-$cuantos = 3;
+if (isset($_GET['cuantos'])) {
+    $cuantos = $_GET['cuantos'];
+} else {
+    $cuantos = 3;
+}
+
 $desde = ($pagina - 1) * $cuantos;
 $hasta = $desde + $cuantos;
 
 for($i=$desde; $i<$hasta; $i++) {
     echo $categorias[$i] . '<br>';
 }
+
+// paginar.php?pagina=1&cuantos=5;
+// paginar.php?pagina=1;
+// paginar.php?pagina=2&cuantos=5;
+// paginar.php?pagina=2;
 
 // var_dump($_POST);

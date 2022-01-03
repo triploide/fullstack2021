@@ -35,7 +35,19 @@ class Paladin
     // Si la vida es menor o igual a cero hacer un echo de "El golpe fue certero"
     public function atacarA($personaje)
     {
-        // TODO:
+        $personaje->vida -= $this->ataque;
+
+        echo "El <strong class='{$this->estandarte}'>paladín {$this->civi}</strong> está atacando al <strong class='{$personaje->estandarte}'>personaje {$personaje->civi}</strong><br>" . PHP_EOL;
+
+        if ($personaje->vida > 0) {
+            echo 'El golpe no fue suficiente<br><br>' . PHP_EOL . PHP_EOL;
+
+            $personaje->atacarA($this);
+        } else {
+            echo 'El golpe fue certero<br>' . PHP_EOL;
+
+            echo "<strong class='{$this->estandarte}'>El paladín {$this->civi} es el vencedor</strong>";
+        }
     }
 }
 

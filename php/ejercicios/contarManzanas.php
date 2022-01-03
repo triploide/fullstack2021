@@ -12,7 +12,15 @@
  */
 
 function contarManzanas($frutas) {
-    // TODO: Implementar
+    $totalManzanas = 0;
+
+    foreach ($frutas as $fruta) {
+        if ($fruta == 'manzana') {
+            $totalManzanas++;
+        }
+    }
+
+    return $totalManzanas;
 }
 
 $frutas = [
@@ -29,4 +37,4 @@ $frutas = [
     'manzana',
 ];
 
-contarManzanas($frutas); // la función debe devolver: 5
+var_dump(contarManzanas($frutas)); // la función debe devolver: 5

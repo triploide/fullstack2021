@@ -21,8 +21,18 @@ $categorias = [
     'Comedia',
 ];
 
-function listar($categorias, $etiqueta) {
-    // TODO: Implementar
+function tag($texto, $tag) {
+    return "<$tag>$texto</$tag>";
 }
 
-listar($categorias, 'li'); // la función debe devolver: <li>Acción</li><li>Aventura</li><li>Terror</li><li>Comedia</li>
+function listar($categorias, $etiqueta) {
+    $html = '';
+
+    foreach ($categorias as $categoria) {
+        $html .= tag($categoria, $etiqueta) . PHP_EOL;
+    }
+
+    return $html;
+}
+
+var_dump(listar($categorias, 'li')); // la función debe devolver: <li>Acción</li><li>Aventura</li><li>Terror</li><li>Comedia</li>

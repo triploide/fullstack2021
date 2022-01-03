@@ -21,7 +21,17 @@
 function combatir($enemigos) {
     $vidaPaladin = 100;
 
-    // TODO: Implementar
+    foreach($enemigos as $enemigo) {
+        $vidaPaladin -= $enemigo;
+    }
+
+    if ($vidaPaladin > 0) {
+        echo 'El paladín sigue con vida<br>';
+    } else {
+        echo 'El paladín dió su vida en batalla<br>';
+    }
+
+    return $vidaPaladin;
 }
 
 $enemigos = [
@@ -30,7 +40,7 @@ $enemigos = [
     10,
 ];
 
-combatir($enemigos); // la función debe devolver: "El paladín sigue con vida";
+var_dump(combatir($enemigos)); // la función debe devolver: "El paladín sigue con vida";
 
 $enemigos = [
     50,
@@ -38,5 +48,5 @@ $enemigos = [
     40,
 ];
 
-combatir($enemigos); // la función debe devolver: "El paladín ha dado su vida en combate";
+var_dump(combatir($enemigos)); // la función debe devolver: "El paladín ha dado su vida en combate";
 

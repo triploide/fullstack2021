@@ -1,7 +1,15 @@
 <?php
 
 function breadcrumbsCreator($list) {
-    // TODO: no puede haber un echo
+    $html =  '<nav>' . PHP_EOL;
+    $html .=    '<ul>' . PHP_EOL;
+    foreach ($list as $element) {
+        $html .= "<li>$element</li>" . PHP_EOL;
+    }
+    $html .=    '</ul>' . PHP_EOL;
+    $html .=  '</nav>' . PHP_EOL;
+
+    return $html;
 }
 
 $breadcrumbs = [
@@ -11,7 +19,7 @@ $breadcrumbs = [
     'Auroa'
 ];
 
-breadcrumbsCreator($breadcrumbs);
+var_dump(breadcrumbsCreator($breadcrumbs));
 
 /**
  * <nav>

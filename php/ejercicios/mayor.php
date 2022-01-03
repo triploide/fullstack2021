@@ -12,11 +12,13 @@
  */
 
 
-function mayor($numero) {
-    //TODO: Implementar
+function mayor($desde, $cuantos=100) {
+    $hasta = $desde + $cuantos;
+
+    return rand($desde, $hasta);
 }
 
-mayor(10); // la función debe devolver: un número aleatorio entre 10 y 110
+var_dump(mayor(10)); // la función debe devolver: un número aleatorio entre 10 y 110
 
 // TODO: modificar mayor para que funcione también así.
-mayor(50, 30); // la función debe devolver: un número aleatorio entre 50 y 80
+var_dump(mayor(50, 30)); // la función debe devolver: un número aleatorio entre 50 y 80

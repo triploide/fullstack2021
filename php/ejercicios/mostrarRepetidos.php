@@ -44,11 +44,30 @@ function mostrarRepetidos($elementos) {
         }
     }
 
-    // iterar sobre el array de repetidos y mostrar todos aquellos elementos que tengan un valor mayor a cero
+    $resultado = [];
 
-    var_dump($repetidos);
+    foreach ($repetidos as $key => $value) {
+        if ($value > 0) {
+            $resultado[] = $key;
+        }
+    }
+
+    return $resultado;
 }
 
-mostrarRepetidos($categorias);
+var_dump(mostrarRepetidos($categorias));
 
+
+function mostrarRepeti2($elementos)
+{
+    $counts = array_count_values($elementos);
+
+    $repetidos = array_filter($counts, function($elemento) {
+        return ($elemento > 1);
+    });
+
+    return array_keys($repetidos);
+}
+
+var_dump(mostrarRepeti2($categorias));
 
