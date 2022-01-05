@@ -33,16 +33,16 @@ class Paladin
     // En el ataque le resta al contrincante igual cantidad de vida que el ataque que poseo
     // Luego de eso, preguntar cuanta vida le queda al contrincante y si la vida es mayor a cero hacer un echo de "El golpe no fue suficiente"
     // Si la vida es menor o igual a cero hacer un echo de "El golpe fue certero"
-    public function atacarA($personaje)
+    public function atacarA($contrincante)
     {
-        $personaje->vida -= $this->ataque;
+        $contrincante->vida -= $this->ataque;
 
-        echo "El <strong class='{$this->estandarte}'>paladín {$this->civi}</strong> está atacando al <strong class='{$personaje->estandarte}'>personaje {$personaje->civi}</strong><br>" . PHP_EOL;
+        echo "El <strong class='{$this->estandarte}'>paladín {$this->civi}</strong> está atacando al <strong class='{$contrincante->estandarte}'>contrincante {$contrincante->civi}</strong><br>" . PHP_EOL;
 
-        if ($personaje->vida > 0) {
+        if ($contrincante->vida > 0) {
             echo 'El golpe no fue suficiente<br><br>' . PHP_EOL . PHP_EOL;
 
-            $personaje->atacarA($this);
+            $contrincante->atacarA($this);
         } else {
             echo 'El golpe fue certero<br>' . PHP_EOL;
 
