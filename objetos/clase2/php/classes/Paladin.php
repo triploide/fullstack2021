@@ -2,6 +2,8 @@
 
 class Paladin extends Personaje
 {
+    public $ataque;
+
     // Sobreescritura del constructor
     public function __construct($vida, $civi, $ataque)
     {
