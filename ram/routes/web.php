@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\PeliculaController;
 use Illuminate\Support\Facades\Route;
 
@@ -521,8 +522,9 @@ Route::get('ejemplo', function () {
 // ----- RAM -----
 // ---------------
 Route::get('/', [HomeController::class, 'home']);
-Route::get('peliculas', [PeliculaController::class, 'listar']);
-Route::get('peliculas/avatar', [PeliculaController::class, 'show']); // Resuelve la ruta PeliculaController y el método avatar
+Route::get('peliculas', [MovieController::class, 'index'])->name('movies.index');
+Route::get('peliculas/{id}', [MovieController::class, 'show'])->name('movies.show'); // Resuelve la ruta PeliculaController y el método avatar
+
 
 /**
  * Crear una ruta con el nombre principal de la entidad (juegos, mis-trabjos, servicios)
