@@ -3,17 +3,17 @@
 <head>
     <title>@yield('title', 'Rent a Movie')</title>
 
-    @include('partials.head')
+    @include('front.partials.head')
 </head>
 <body>
 
-    @include('partials/navbar')
+    @include('front.partials/navbar')
 
     <main class="container">
         @yield('container')
     </main>
 
-    @include('partials.footer')
+    @include('front.partials.footer')
 
 </body>
 </html>
