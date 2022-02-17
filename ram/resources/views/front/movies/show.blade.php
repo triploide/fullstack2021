@@ -2,7 +2,7 @@
 
 @section('title', 'Película')
 
-@section('section', $pelicula->title)
+@section('section', $movie->title)
 
 @section('section-title', 'Los mejores estrenos')
 
@@ -15,9 +15,26 @@
 @endsection
 
 @section('content')
-    <h1>{{ $pelicula->title }}</h1>
-    <p><strong>Fecha de estreno: </strong> {{ $pelicula->release_date }}</p>
-    <p><strong>Géneros:</strong> {{ $pelicula->genre_id }}</p>
+    <h1>{{ $movie->title }}</h1>
+    <p><strong>Fecha de estreno: </strong> {{ $movie->release_date }}</p>
+    <p><strong>Género:</strong> {{ $movie->genre->value }}</p>
+    <p>
+        <strong>Tags:</strong>
+        {{--         
+        @php
+            dd($movie->tags->all());
+        @endphp --}}
+        {{--
+            @foreach ($movie->tags as $tag)
+                {{ $tag->myFunction() }}<br>
+            @endforeach
+        --}}
+        @foreach ($movie->tags as $tag)
+            {{ $tag->value }}<br>
+        @endforeach
+    </p>
+
+    <p><strong>Tags:</strong> {{ $movie->tagsToHtml() }}</p>
 
     <br>
     <br>

@@ -8,4 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class Movie extends Model
 {
     use HasFactory;
+
+    // Esto genera un atributo que devuelve una instancia del modelo Genre
+    // $movie->genre (como atributo) -> Genre
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class);
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    public function tagsToHtml()
+    {
+        $html = '';
+
+        foreach($this->tags as $tag) {
+            $html .= $tag->value . ', ';
+        }
+
+        return $html;
+    }
 }

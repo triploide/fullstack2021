@@ -550,8 +550,11 @@ class MovieController extends Controller
         // }
 
         // $peli = Movie::find($id); // Trae un modelo Movie
-        $peli = Movie::findOrFail($id); // Trae un modelo Movie
+        $movie = Movie::findOrFail($id); // Trae una instancia del modelo Movie
 
-        return view('front.movies.show', ['pelicula' => $peli]);
+        // dd($movie->genre);
+        // dd($movie->tags);
+
+        return view('front.movies.show', ['movie' => $movie]);
     }
 }
