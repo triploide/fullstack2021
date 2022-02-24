@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 use App\Http\Controllers\Front\{AboutController, ContactController, MovieController};
 // use App\Http\Controllers\Front\ContactController;
 // use App\Http\Controllers\Front\MovieController;
@@ -536,6 +537,9 @@ Route::get('nosotros', [AboutController::class, 'index'])->name('about.index');
 
 
 // --- Admin ---
+
+Route::get('admin/form', [AdminMovieController::class, 'form']);
+Route::post('admin/form', [AdminMovieController::class, 'save']);
 
 
 /**
