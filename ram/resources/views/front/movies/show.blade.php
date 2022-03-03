@@ -2,9 +2,9 @@
 
 @section('title', 'Película')
 
-@section('section', $movie->title)
+@section('section', $movie->genre->value)
 
-@section('section-title', 'Los mejores estrenos')
+@section('section-title', $movie->title)
 
 @section('breadcrumb')
     <ul class="list-inline">
@@ -15,29 +15,31 @@
 @endsection
 
 @section('content')
-    <h1>{{ $movie->title }}</h1>
-    <p><strong>Fecha de estreno: </strong> {{ $movie->release_date }}</p>
-    <p><strong>Género:</strong> {{ $movie->genre->value }}</p>
-    <p>
-        <strong>Tags:</strong>
-        {{--         
-        @php
-            dd($movie->tags->all());
-        @endphp --}}
-        {{--
+    <main class="container">
+        <h1>{{ $movie->title }}</h1>
+        <p><strong>Fecha de estreno: </strong> {{ $movie->release_date }}</p>
+        <p><strong>Género:</strong> {{ $movie->genre->value }}</p>
+        <p>
+            <strong>Tags:</strong>
+            {{--         
+            @php
+                dd($movie->tags->all());
+            @endphp --}}
+            {{--
+                @foreach ($movie->tags as $tag)
+                    {{ $tag->myFunction() }}<br>
+                @endforeach
+            --}}
             @foreach ($movie->tags as $tag)
-                {{ $tag->myFunction() }}<br>
+                {{ $tag->value }}<br>
             @endforeach
-        --}}
-        @foreach ($movie->tags as $tag)
-            {{ $tag->value }}<br>
-        @endforeach
-    </p>
+        </p>
 
-    <p><strong>Tags:</strong> {{ $movie->tagsToHtml() }}</p>
+        <p><strong>Tags:</strong> {{ $movie->tagsToHtml() }}</p>
 
-    <br>
-    <br>
-    <br>
-    <p><a href="{{ route('movies.index') }}">Volver atrás</a></p>
+        <br>
+        <br>
+        <br>
+        <p><a href="{{ route('movies.index') }}">Volver atrás</a></p>
+    </main>
 @endsection

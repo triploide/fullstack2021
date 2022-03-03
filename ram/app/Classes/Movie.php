@@ -11,7 +11,7 @@ class Movie
         $this->id = $id;
     }
 
-    public function delete()
+    public function myMethod()
     {
         dd($this->id);
     }

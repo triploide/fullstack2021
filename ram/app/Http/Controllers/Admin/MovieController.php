@@ -3,28 +3,41 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Movie;
 
 class MovieController extends Controller
 {
-    public function form()
+    public function index()
     {
-        return view('admin.form');
+        $movies = Movie::all();
+
+        return view('admin.movies.index', compact('movies'));
     }
 
-    public function save()
+    public function create()
     {
-        // Devuelve todo el request en formato de array
-        // En el array, cada key es el name de un input y el value de esa key es el value del input
-        // $data = request()->all();  
-        // dd($data['comment']); // Así puedo recuperar un valor en particular
+        return view('admin.movies.form');
+    }
 
-        // dd(request()->input('comment')); // Recupera el valor de un input dado a partir de su name
+    public function store()
+    {
+        $movie = new Movie;
+        $movie->title = request()->input('title');
+        $movie->release_date = request()->input('release_date');
+        $movie->length = request()->input('length');
+        $movie->genre_id = request()->input('genre_id');
+        $movie->price = request()->input('price');
+        $movie->save();
 
-        // dd(request()->except('_token',  'submit')); // devuelve un array de resultados
+        return redirect()->route('admin.movies.index');
+    }
 
-        dd(request()->only('firstname',  'lastname')); // devuelve un array de resultados
+    public function destroy($id)
+    {
+        $movie = Movie::find($id);
 
-        return 'Éxito!';
+        $movie->delete();
+
+        return redirect()->route('admin.movies.index');
     }
 }

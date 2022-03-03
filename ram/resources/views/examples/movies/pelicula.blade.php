@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('examples.layout')
 
 @section('title', $pelicula['Title'])
 
