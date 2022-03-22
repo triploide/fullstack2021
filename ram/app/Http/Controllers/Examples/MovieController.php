@@ -61,7 +61,27 @@ class MovieController extends Controller
 
         // dd(request()->except('_token',  'submit')); // devuelve un array de resultados
 
-        dd(request()->only('firstname',  'lastname')); // devuelve un array de resultados
+        // dd(request()->only('firstname',  'lastname')); // devuelve un array de resultados
+
+        // ----- Creación de un nuevo registro -----
+        // Ver forma reducida en Admin\MovieController
+        // $movie = new Movie; // Crea una instancia del modelo Movie
+        // $movie->title = request()->input('title');
+        // $movie->release_date = request()->input('release_date');
+        // $movie->length = request()->input('length');
+        // $movie->genre_id = request()->input('genre_id');
+        // $movie->price = request()->input('price');
+        // $movie->save();
+
+        // ----- Actualización de un registro -----
+        // Ver forma reducida en Admin\MovieController
+        // $movie = Movie::find($id); // Busca un registro por su id
+        // $movie->title = request()->input('title');
+        // $movie->release_date = request()->input('release_date');
+        // $movie->length = request()->input('length');
+        // $movie->genre_id = request()->input('genre_id');
+        // $movie->price = request()->input('price');
+        // $movie->save();
 
         return 'Éxito!';
     }

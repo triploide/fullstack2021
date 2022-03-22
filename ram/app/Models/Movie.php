@@ -9,6 +9,14 @@ class Movie extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'release_date',
+        'length',
+        'genre_id',
+        'price',
+    ];
+
     // Esto genera un atributo que devuelve una instancia del modelo Genre
     // $movie->genre (como atributo) -> Genre
     public function genre()

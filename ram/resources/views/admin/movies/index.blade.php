@@ -10,12 +10,18 @@
         </div>
     </div>
 
+    @if (session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
+
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th>Título</th>
                 <th>Género</th>
-                <th>Acciones</th>
+                <th style="text-align: right; width: 20%">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -23,12 +29,16 @@
                 <tr>
                     <td>{{ $movie->title }}</td>
                     <td>{{ $movie->genre->value }}</td>
-                    <td>
-                        <a href="#">Editar</a>
-                        <form action="{{ route('admin.movies.destroy', ['id' => $movie->id]) }}" method="POST">
+                    <td style="text-align: right; width: 20%">
+                        <a class="btn btn-primary" href="{{ route('admin.movies.edit', ['movie' => $movie->id]) }}">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <form class="d-inline-block" action="{{ route('admin.movies.destroy', ['movie' => $movie->id]) }}" method="POST">
                             @csrf
                             @method('delete')
-                            <input class="btn btn-danger" type="submit" name="submit" value="borrar">
+                            <button class="btn btn-danger" type="submit">
+                                <i class="fas fa-trash"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>

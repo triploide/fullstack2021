@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Genre;
 use App\Models\Movie;
 
 class MovieController extends Controller
@@ -16,28 +17,48 @@ class MovieController extends Controller
 
     public function create()
     {
-        return view('admin.movies.form');
+        return view('admin.movies.create');
     }
 
     public function store()
     {
-        $movie = new Movie;
-        $movie->title = request()->input('title');
-        $movie->release_date = request()->input('release_date');
-        $movie->length = request()->input('length');
-        $movie->genre_id = request()->input('genre_id');
-        $movie->price = request()->input('price');
-        $movie->save();
+        request()->validate([
+            'title' => 'required|min:3|max:255',
+            'release_date' => 'required|date|before:today',
+            'genre_id' => 'exists:genres,id'
+        ]);
 
-        return redirect()->route('admin.movies.index');
+        $movie = Movie::create(request()->all());
+
+        return redirect()->route('admin.movies.index')->with('message', "La película {$movie->title} se creó con éxito.");
     }
 
-    public function destroy($id)
+    public function edit(Movie $movie)
     {
-        $movie = Movie::find($id);
+        $genres = Genre::orderBy('value')->get(); // ORDER BY
+
+        return view('admin.movies.edit', ['movie' => $movie, 'genres' => $genres]);
+    }
+
+    public function update(Movie $movie)
+    {
+        request()->validate([
+            'title' => 'required|min:3|max:255',
+            'release_date' => 'required|date|before:today',
+            'genre_id' => 'exists:genres,id'
+        ]);
+
+        $movie->update(request()->all());
+
+        return redirect()->route('admin.movies.index')->with('message', "La película {$movie->title} se editó con éxito.");
+    }
+
+    public function destroy(Movie $movie)
+    {
+        $title = $movie->title;
 
         $movie->delete();
 
-        return redirect()->route('admin.movies.index');
+        return redirect()->route('admin.movies.index')->with('message', "La película {$title} se eliminó con éxito.");;
     }
 }

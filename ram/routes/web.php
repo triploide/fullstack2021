@@ -51,10 +51,18 @@ Route::get('nosotros', [AboutController::class, 'index'])->name('about.index');
 // Route::get('admin/form', [AdminMovieController::class, 'form']);
 // Route::post('admin/form', [AdminMovieController::class, 'save']);
 
-Route::get('admin/movies', [AdminMovieController::class, 'index'])->name('admin.movies.index');
-Route::get('admin/movies/create', [AdminMovieController::class, 'create'])->name('admin.movies.create');
-Route::post('admin/movies', [AdminMovieController::class, 'store'])->name('admin.movies.store');
-Route::delete('admin/movies/{id}', [AdminMovieController::class, 'destroy'])->name('admin.movies.destroy');
+// Refactor de rutas
+// Route::get('admin/movies', [AdminMovieController::class, 'index'])->name('admin.movies.index');
+// Route::get('admin/movies/create', [AdminMovieController::class, 'create'])->name('admin.movies.create');
+// Route::post('admin/movies', [AdminMovieController::class, 'store'])->name('admin.movies.store');
+// Route::get('admin/movies/{id}/edit', [AdminMovieController::class, 'edit'])->name('admin.movies.edit');
+// Route::put('admin/movies/{id}', [AdminMovieController::class, 'update'])->name('admin.movies.update');
+// Route::delete('admin/movies/{id}', [AdminMovieController::class, 'destroy'])->name('admin.movies.destroy');
+
+Route::name('admin.')->prefix('admin')->group(function () {
+    Route::resource('movies', AdminMovieController::class);
+});
+
 
 
 /**

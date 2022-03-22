@@ -6,7 +6,7 @@
 <body>
     @include('admin.partials.nav')
 
-    <main class="container">
+    <main class="container py-3">
         @yield('content')
     </main>
 </body>
